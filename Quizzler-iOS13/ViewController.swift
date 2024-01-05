@@ -15,10 +15,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var questionText: UILabel!
     
-    struct quiz {
-        
-    }
-    
     var currentQuestion = 0
     var questions:[Question] = [Question(q: "A slug's blood is green.", a: "True"),
                                 Question(q: "Approximately one quarter of human bones are in the feet.", a: "True"),
