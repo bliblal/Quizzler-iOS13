@@ -11,10 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var progressBar: UIProgressView!
-    @IBOutlet weak var falseButton: UIButton!
-    @IBOutlet weak var trueButton: UIButton!
+    @IBOutlet weak var answerOption1: UIButton!
+    @IBOutlet weak var answerOption2: UIButton!
+    @IBOutlet weak var answerOption3: UIButton!
     @IBOutlet weak var questionText: UILabel!
     @IBOutlet weak var scoreText: UILabel!
+    
     
     var questionLogic = QuestionLogic()
     
@@ -47,9 +49,13 @@ class ViewController: UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + seconds) { [self] in
             self.progressBar.progress = self.getPercentage(CurrentQuestion: questionLogic.currentQuestion)
             self.questionText.text = questionLogic.questions[questionLogic.currentQuestion].q
+            self.answerOption1.setTitle(questionLogic.questions[questionLogic.currentQuestion].a[0], for: .normal)
+            self.answerOption2.setTitle(questionLogic.questions[questionLogic.currentQuestion].a[1], for: .normal)
+            self.answerOption3.setTitle(questionLogic.questions[questionLogic.currentQuestion].a[2], for: .normal)
             self.scoreText.text = "Score: \(questionLogic.score)"
-            self.trueButton.backgroundColor = UIColor.clear
-            self.falseButton.backgroundColor = UIColor.clear
+            self.answerOption2.backgroundColor = UIColor.clear
+            self.answerOption1.backgroundColor = UIColor.clear
+            self.answerOption3.backgroundColor = UIColor.clear
         }
         
         
